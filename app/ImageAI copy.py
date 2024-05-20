@@ -5,26 +5,15 @@ import os
 
 def getPrompt_init():
     
-    # # prompt 1
-    # stylelen = 3
-    # # text1 = f"create {stylelen} new clothe design from these two clothe images, do not include background"
-    # text1 = "combine to a new style from these images, do not include background"
-    # text2 = "" #"output it in json format"
-    # return f'{text1}\n{text2}'
-
+    # prompt 1
+    # return "combine to a new style from these images, do not include background"
 
     # prompt 2
-    stylelen = 1
+    stylelen = 3
     text1 =  f"You're an AI fashion designer who specializes in creating unique clothing designs using the latest AI design technology. Your task is to utilize the DALL-E Super Describe Model to generate at least {stylelen} different styles of clothing by deriving inspiration from the fabric in the images provided. Imagine each fabric as a source of creative inspiration, guiding you to craft distinct and appealing clothing designs. Ensure that each design reflects the essence of the fabric pattern, texture, and color scheme while incorporating innovative elements to make them stand out. For example, when presented with a floral-patterned fabric, you would envision a flowing summer dress with delicate petal-inspired embellishments. Similarly, a geometric-patterned fabric might inspire you to design a sleek and modern tailored suit with bold, structured lines. Remember to infuse your designs with creativity, incorporating a variety of silhouettes, styles, and details to showcase your AI fashion design expertise. Aim to create a diverse range of clothing styles that are both visually captivating and fashion-forward based on the fabric images provided."
 
-    text2 = "" #"Result description must be length 1000 or less" #"output it in json format"
+    text2 = "output it in json format"
     return f'{text1}\n{text2}'
-
-
-
-def checkImage_quality(given_images, image_result):
-    pass
-
 
 def getPrompt_from_GeminiAI(images):
     '''

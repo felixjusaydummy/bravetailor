@@ -93,8 +93,6 @@ def get_images2(files, my_uuid):
         content = pybase64.b64encode(fdata)
         data.append(content)
 
-        print(f"get image: {filename} {len(content)}")
-
         # save images
         # f2s = os.path.join(wkdir,filename)
         f2s = f"{wkdir}/{filename}"
@@ -109,6 +107,11 @@ def get_images2(files, my_uuid):
             "image_filename": filename,
             "content_base64": content
         })
+
+    # f2info = f"{wkdir}/info"
+    # with open(f2info, 'wb') as x:
+    #     # Write content to the file
+    #     x.write(image_info)
 
     return data, image_info
 
@@ -212,6 +215,24 @@ def create_app():
             }
             return render_template("output2.html", image_info=ii, image_categ=image_categ)
 
+    # # @app.route('/<path:filename>')  
+    # @app.route('/display/<path:filename>')
+    # def display_image(filename):
+    #     # print("display image: ", url_for('static', filename="uploads/" + filename))
+    #     # # return redirect(url_for('static', filename="uploads/" + filename), code=301)  
+    #     print("image sending")
+    #     return send_from_directory('uploads', filename)
+
+
+    # @app.route('/img/<path:filename>') 
+    # def send_file(filename): 
+    #     print("image sending2")
+    #     return send_from_directory(app.static_folder, filename, as_attachment=True)
+
+
+    # @app.route('/uploadxx/<filename>')
+    # def uploaded_file(filename):
+    #     return f'<img src="/static/uploads/{filename}" alt="{filename}">'
 
     @app.route('/uploads/<path:uuid>/<path:filename>')
     def download_file(uuid, filename):
@@ -223,25 +244,10 @@ def create_app():
         return send_from_directory(cpath, filename, as_attachment=True)
 
 
-    @app.route('/loading/<path:my_uuid>')
-    def loading(my_uuid):
-        print(f"myuuid: {my_uuid}")
-
-        files = os.listdir(f"app/{path_cache}/{my_uuid}")
-        data = []
-        for f in files:
-            fp = f"app/{path_cache}/{my_uuid}/{f}"
-            with open(fp, "rb") as fimage: 
-                xd = fimage.read()
-                xd = pybase64.b64encode(xd)
-                data.append(xd.decode("utf-8"))
-                print(f"{f}: {len(xd)}")
-
-        res = getPrompt_from_GeminiAI(data)
-        image_final = getImage_from_openai(res)
+    @app.route('/loading')
+    def loading():
+        time.sleep(50)  # time consuming functions
         
-        return f"<p>Prompt: {res}<br><img src='{image_final['data'][0]['url']}' alt='{image_final['data'][0]['url']}'></p>"
-
     return app
 
 

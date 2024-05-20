@@ -44,5 +44,8 @@ sgmllib3k==1.0.0
     # via feedparser
 urllib3==2.2.1
     # via requests
+uuid==1.30
+    # via bravetailoring
 werkzeug==3.0.3
+    # via bravetailoring
     # via flask

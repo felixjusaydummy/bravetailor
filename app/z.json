@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Floral Dress",
+    "description": "A maxi wrap dress with a delicate floral pattern in shades of blue. The dress features a V-neckline, short sleeves, and a tie waist. It is made from a lightweight, breathable fabric and is perfect for summer.",
+    "image": "https://i.imgur.com/5x67890.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Chambray Shirt",
+    "description": "A classic chambray shirt with a relaxed fit. The shirt features a collar, long sleeves, and a single chest pocket. It is made from a durable, wrinkle-resistant fabric and is perfect for everyday wear.",
+    "image": "https://i.imgur.com/6x78901.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Denim Jacket",
+    "description": "A denim jacket with a cropped fit and distressed details. The jacket features a collar, long sleeves, and two front pockets. It is made from a sturdy, durable fabric and is perfect for fall and spring.",
+    "image": "https://i.imgur.com/7x89012.jpg"
+  }
+]
