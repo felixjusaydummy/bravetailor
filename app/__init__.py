@@ -138,6 +138,11 @@ def create_app():
     jinja_partials.register_extensions(app)
 
     # modified
+    @app.route('/') 
+    def main3(): 
+        return render_template("upload3.html") 
+
+
     @app.route("/login")
     def render_login(feed_url: str = None):
         return render_template("login.html")
